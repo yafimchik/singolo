@@ -1,3 +1,22 @@
+@font-face{
+
+    font-family: 'Lato-Regular';
+    
+    src: url('./assets/Lato-Regular.eot');
+    
+    src: url('./assets/Lato-Regular.eot?iefix') format('eot'),
+    
+    url('./assets/Lato-Regular.woff') format('woff'),
+    
+    url('./assets/Lato-Regular.ttf') format('truetype'),
+    
+    url('./assets/Lato-Regular.svg#webfont') format('svg');
+    
+    font-weight: normal;
+    
+    font-style: normal;
+    
+    }
 @font-face { 
     font-family: 'Lato-Bold'; 
                         
@@ -12,13 +31,7 @@
     font-weight: normal; 
     font-style: normal; 
   }
-  @font-face { 
-    font-family: 'Lato-Regular'; 
-                        
-    src: url('./assets/Lato-Regular.ttf')  format('truetype');                /* Старые Safari, Android, iOS */ 
-    font-weight: normal; 
-    font-style: normal; 
-  }
+ 
 *{
     margin: 0;
     padding: 0;
@@ -69,10 +82,6 @@ body{
     font-stretch: ultra-condensed;
     font-weight: 700;
     letter-spacing: -0.95px;  
-
-    
- */
-
 }
 .asterisk{
     
@@ -174,7 +183,7 @@ nav ul li:hover{
 }
 
 .services-head{
-    padding-top: 50px;
+    padding-top: 59px;
     
 }
 .services-head h1{
@@ -183,18 +192,50 @@ nav ul li:hover{
     letter-spacing: 0.3px;
     font-weight: 700;
 }
+.services-head p{
+    padding-top: 19px;
+    font-size: 19px;
+    font-weight: 100;
+    font-stretch: ultra-condensed;
+    letter-spacing: -0.9px;
+    word-spacing: 1px;
+    line-height: 30px;
+}    
+
 .services-grid{
+    padding-top: 40px;
+    
     display: grid;
-    grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+    grid-template: auto auto / auto auto auto;
+    justify-content: space-between;
+
+   
 }
 
 .service-item{
+    width: 300px;
+    margin-bottom: 25px;
     display: grid;
+    grid-template: auto auto / auto auto;
+    
 }
 .service-icon{
+    padding-top: 6px;
+    padding-right: 20px;
     grid-area: 1 / 1 / span 2 / span 1;
 }
+.service-item h3{
+    padding-top: 1px;
+}
+.service-item p{
+    padding-top: 8px;
+    font-size: 11px;
+    line-height: 2em;
+    overflow: hidden;
+}
+
 .header-bottom{
+    
     height: 6px;
     background-color: #323746;
 }
