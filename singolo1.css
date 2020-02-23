@@ -91,10 +91,9 @@ body{
 }
 
 nav{
-    font-size: 12px;
     padding-top: 10px;
     padding-bottom: 2px;
-    
+    font-size: 12px;
 }
 
 .nav-bar{
@@ -117,9 +116,6 @@ nav ul li{
 
 }
 nav ul li:hover{
-    margin-left: 10px;
-    flex-basis: auto;
-    cursor: pointer;
     opacity: 0.8;
 
 }
@@ -131,13 +127,14 @@ nav ul li:hover{
 }
 
 .slider-main{
+    height: 594px;
     padding-left: 41px;
     padding-bottom: 1px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    height: 594px;
+    
     background-color: #f06c64;
 }
 .crooked{
