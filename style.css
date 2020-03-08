@@ -480,7 +480,12 @@ textarea{
 .inputs{
     width: 100%;
 }
-
+.inputs:required:valid:not(:placeholder-shown) {
+    background-color: rgb(29, 83, 29);
+}
+  .inputs:required:invalid:not(:placeholder-shown) {
+    background-color: rgba(255, 0, 0, 0.404);
+}
 .inputs::placeholder {
     font-family: "Lato-Regular";
     font-size: 1.2rem;
