@@ -389,9 +389,12 @@ li{
 }
 
 .comments{
-    height: 654px;
+    
 
     background-color: #f06c64;
+}
+.comments main{
+    
 }
 
 .comments h1{
@@ -419,9 +422,11 @@ li{
 .contact-form{
     width: 100%;
     padding-top: 17px;
+    padding-bottom: 5px;
     
     
 }
+
 .contacts{
     padding-left: 20px;
     padding-top:13px;
@@ -493,10 +498,14 @@ textarea{
     font-weight: 400;
     color: #f48c8f;
 }
+.button{
+    padding: 5px;
+}
 .button:hover{
     border-color: #f48c8f;
     box-shadow: inset 0 0 10px #f48c8f;
 }
+
 
 footer{
     height: 76px;
