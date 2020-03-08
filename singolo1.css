@@ -17,38 +17,19 @@
     font-style: normal;
     
     }
-@font-face { 
-    font-family: 'Lato-Bold'; 
-                        
-    src: url('./assets/Lato-Bold.ttf')  format('truetype');                /* Старые Safari, Android, iOS */ 
-    font-weight: normal; 
-    font-style: normal; 
-  }
-  @font-face { 
-    font-family: 'Lato-Thin'; 
-                        
-    src: url('./assets/Lato-Thin.ttf')  format('truetype');                /* Старые Safari, Android, iOS */ 
-    font-weight: normal; 
-    font-style: normal; 
-  }
- 
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato-Regular',  Verdana, sans-serif;
 }
 body{
     margin-left: auto;
     margin-right: auto;
     max-width: 1020px;
-/*    width: auto;
-    
-    margin: auto;
 
-    font-family: "Lato Bold", Arial;
-*/
 }
 .header-main,
 .slider-main,
