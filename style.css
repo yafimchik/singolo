@@ -243,7 +243,7 @@ nav ul li:hover{
 .services_bottom,
 .portfolio_bottom,
 .about-us_bottom,
-.comments-bottom{
+.comments_bottom{
    height: 6px;
 }
 .header_bottom,
@@ -251,7 +251,7 @@ nav ul li:hover{
     background-color: #323746;
 }
 .slider_bottom,
-.comments-bottom{
+.comments_bottom{
     background-color: #ea676b;
 }
 .services_bottom,
