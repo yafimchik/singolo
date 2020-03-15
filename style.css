@@ -38,6 +38,11 @@ p{
     word-break: break-all;
     text-align: justify;
 }
+.doc-header{
+    position: sticky;
+    top: 0;
+ 
+}
 .main{
     padding-left: 40px;
     padding-right: 40px;
@@ -60,6 +65,14 @@ h3{
     font-stretch: extra-expanded;
     letter-spacing: -0.01rem;
     font-weight: 700;
+}
+.nav-link,
+.nav-link:visited,
+.nav-link:active,
+.nav-link:hover{
+    color: inherit;  
+    text-decoration: none;
+      
 }
 
 .contact,
@@ -140,14 +153,8 @@ nav ul li{
 
 }
 nav ul li:hover{
-    opacity: 0.8;
-
-}
-
-.nav-item-main{
-
     color: #f06c64;
-    
+
 }
 
 .slider .main{
@@ -196,7 +203,7 @@ nav ul li:hover{
 
 .services .main{
     height: 494px;
-    position: relative;
+  
     display: flex;
     flex-flow: column nowrap;
     color: #666d89;
@@ -267,25 +274,26 @@ nav ul li:hover{
 }
 
 .portfolio h1,
-h3,
-p,
+.portfolio h3,
+.portfolio p,
+.portfolio li,
 li{
     color: #666d89;
 }
 .about-us h1,
-h3,
-p,
-li{
+.about-us h3,
+.about-us p,
+.about-us li{
     color: #666d89;
 }
 .portfolio h1,
-h3, 
-li{
+.portfolio h3, 
+.portfolio li{
     text-transform: capitalize;
 }
 .about-us h1,
-h3, 
-li{
+.about-us h3, 
+.about-us li{
     text-transform: capitalize;
 }
 
