@@ -40,6 +40,7 @@ p{
 }
 .doc-header{
     position: sticky;
+    position: -webkit-sticky;
     top: 0;
  
 }
@@ -139,20 +140,23 @@ nav{
     
 }
 
-.nav-separator{
-    color: #494e62;
-}
-
-
-nav ul li{
+.nav-item{
     margin-left: 12.8px;
     flex-basis: auto;
     cursor: pointer;
     font-size: 1.2rem;
     text-transform: uppercase;
+    color: #ffffff;
+}
+.nav-separator{
+    color: #494e62;
+}
+
+.nav-item-active{
+    color: #f06c64;
 
 }
-nav ul li:hover{
+.nav-item:hover{
     color: #f06c64;
 
 }
@@ -166,13 +170,20 @@ nav ul li:hover{
     justify-content: space-between;
     align-items: center;
     
-    background-color: #f06c64;
+    
 }
+
+.slider-wrapper{
+    transition: all 0.1s ease;
+
+}
+
 .crooked{
     padding-bottom: 1px;
     
 }
 .slider-arrow{
+    
     height: max-content;
     width: max-content;
     border: none;
@@ -187,12 +198,51 @@ nav ul li:hover{
     
 }
 .slide{
+    transition: all 0.5s ease;
+    width: 100%;
     padding-bottom: 4px;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center; 
     
+}
+.slide-1{
+    background-color: #f06c64;
+    
+}
+.slide-2{
+    background-color: #648BF0;
+    
+}
+/* Анимация слайдов */
+.slide {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 0.5s;
+    animation-name: fade;
+    animation-duration: 0.5s;
+}
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+.mini-tel{
+    width: 156px;
+    height: 314px;
+    opacity: .5;
 }
 .img-separator{
     height: 0px;
@@ -244,7 +294,10 @@ nav ul li:hover{
     line-height: 2.1rem;
     overflow: hidden;
 }
-
+.slider_bottom{
+    background-color: black;
+    opacity: 0.03;
+}
 .header_bottom,
 .slider_bottom,
 .services_bottom,
@@ -257,7 +310,7 @@ nav ul li:hover{
 .portfolio_bottom{
     background-color: #323746;
 }
-.slider_bottom,
+
 .comments_bottom{
     background-color: #ea676b;
 }
@@ -276,8 +329,7 @@ nav ul li:hover{
 .portfolio h1,
 .portfolio h3,
 .portfolio p,
-.portfolio li,
-li{
+.portfolio li{
     color: #666d89;
 }
 .about-us h1,
@@ -333,10 +385,20 @@ li{
     word-spacing: 0em;
     letter-spacing: -0.05px;
     
+
+}
+.sort-active{
+    color: #ffffff !important; 
 }
 .portfolio-sort li:hover{
-    color: #ffffff;
+    opacity: 0.8;
 }
+.portfolio__project-active{
+    border-width: 5px;
+    border-color: #F06C64;
+    border-style: solid;
+}
+
 
 .portfolio__wrapper{
     margin-top: 19px;
@@ -504,13 +566,72 @@ textarea{
     font-weight: 400;
     color: #f48c8f;
 }
-.button{
+.contact-form_button{
+    margin-bottom: 16px;
+    border-style: none;
+    border-radius: 5px;
+    color: #f48c8f;
+    background-color: #d6564f;
     padding: 5px;
+    
 }
-.button:hover{
+.contact-form_button:hover{
     border-color: #f48c8f;
     box-shadow: inset 0 0 10px #f48c8f;
 }
+
+.modal-form{
+    position: fixed;
+    width: 20vw;
+    height: 20vh;
+    top: 40%;
+    left: 40%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
+    
+ /*   top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    
+*/
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+   
+    
+
+  
+    
+    background-color: #666d89;
+    border-radius: 5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #ea676b;
+   
+}
+
+.modal-form_closed{
+    display: none;
+}
+.modal-form p,
+.modal-form h4{
+    color: #2d303a;
+    text-align: center;
+    font-size: 2rem;
+}
+.modal-form_close{
+    margin: auto;
+    color: #2d303a;
+    font-size: 2rem;
+    background-color: #868ca0;
+    border-radius: 5px;
+    border-style: none;
+}
+
 
 
 footer{

@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="./style.css">
-        <script src="./scrypt.js"></script>
+        
     </head>
     <body>
         <header id="home" class="doc-header">
@@ -16,21 +16,21 @@
                 <nav>
                     <ul class="nav-bar">
                         <li class="nav-item">
-                            <a href="#home" class="nav-link">Home</a>
+                            <a href="#home" onclick="clickNavBar" class="nav-link">Home</a>
                         </li>
-                        <li class="nav-separator">&middot;</li>
+                        <li class="nav-item nav-separator">&middot;</li>
                         <li class="nav-item">
                             <a href="#services" class="nav-link">Services</a>
                         </li>
-                        <li class="nav-separator">&middot;</li>
+                        <li class="nav-item nav-separator">&middot;</li>
                         <li class="nav-item">
                             <a href="#portfolio" class="nav-link">Portfolio</a>
                         </li>
-                        <li class="nav-separator">&middot;</li>
+                        <li class="nav-item nav-separator">&middot;</li>
                         <li class="nav-item">
                             <a href="#about" class="nav-link">About</a>
                         </li>
-                        <li class="nav-separator">&middot;</li>
+                        <li class="nav-item nav-separator">&middot;</li>
                         <li class="nav-item">
                             <a href="#contact" class="nav-link">Contact</a>
                         </li>
@@ -41,23 +41,31 @@
         </div>
         </header>
         <section class="slider">
-            <div class="main">
-                <button class="slider-arrow">
-                    <img class="crooked" src="./assets/chevL.png" alt="prev"/>
+            <div class="slider-wrapper">
+                <div class="main">
+                    <button class="slider-arrow left">
+                        <img class="crooked" src="./assets/chevL.png" alt="prev"/>
 
-                </button>
-                <div class="slide">
-                    <img  src="./assets/iPhone Vertical.png" alt="iPhone Vertical"/>
-                    <div class="img-separator"></div>
-                    <img src="./assets/iPhone Horizontal.png" alt="iPhone Horizontal"/>
+                    </button>
+                    <div class="slide slide-1">
+                        <img class="iphone" src="./assets/iPhone Vertical_Black.png" alt="iPhone Vertical"/>
+                        <div class="img-separator"></div>
+                        <img class="iphone" src="./assets/iPhone Horizontal_Black.png" alt="iPhone Horizontal"/>
+                    </div>
+                    <div class="slide slide-2">
+                        <img class="mini-tel"  src="./assets/iPhone Vertical_Black.png" alt="iPhone Vertical"/>
+                        <img class="iphone" src="./assets/iPhone Vertical_Black.png" alt="iPhone Vertical"/>
+                        <img class="mini-tel"  src="./assets/iPhone Vertical_Black.png" alt="iPhone Vertical"/>
+                    </div>                    
+                    <button class="slider-arrow right">
+                        <img src="./assets/chevR.png" alt="prev"/>
+                    </button>
                 </div>
-                
-                <button class="slider-arrow">
-                    <img src="./assets/chevR.png" alt="prev"/>
-                </button>
+                <div class="slider_bottom"></div>
             </div>
-            <div class="slider_bottom"></div>
+           
         </section>
+       
         <section id="services" class="services">
             <div class="main">
                 <header>
@@ -106,10 +114,10 @@
                     <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
                 </header>
                 <ul class="portfolio-sort">
-                    <li>All</li>
-                    <li>Web design</li>
-                    <li>Graphic design</li>
-                    <li>Artwork</li>
+                    <li class="sort-item sort-active">All</li>
+                    <li class="sort-item">Web design</li>
+                    <li class="sort-item">Graphic design</li>
+                    <li class="sort-item">Artwork</li>
                 </ul>
                 <div class="portfolio__wrapper">
                     <img class="portfolio__project" src="./assets/Image-1.png"/>
@@ -183,16 +191,16 @@
                     <p class="comments-description">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
                 </header>
                 <div class="comments__wrapper">
-                    <form class="contact-form" action="#" method="post">
-                        <input class="inputs" type="text" name="name" placeholder="Name (Required)" required minlength="2" maxlength="50" pattern="^[A-Za-zА-Яа-яЁё\s]+$">
+                    <form class="contact-form" action="#" method="post" onsubmit="return false">
+                        <input class="inputs contact-form_name" type="text" name="name" placeholder="Name (Required)" required minlength="2" maxlength="50" pattern="^[A-Za-zА-Яа-яЁё\s]+$">
                         <br>
-                        <input class="inputs" type="email" name="mail" placeholder="Email (Required)" required>
+                        <input class="inputs contact-form_mail" type="email" name="mail" placeholder="Email (Required)" required>
                         <br>
-                        <input class="inputs" type="text" name="subject" placeholder="Subject">
+                        <input class="inputs contact-form_subject" type="text" name="subject" placeholder="Subject">
                         <br>
-                        <textarea class="inputs" name="description" placeholder="Describe your project in detail..."></textarea>
+                        <textarea class="inputs contact-form_description" name="description" placeholder="Describe your project in detail..."></textarea>
                         <br>
-                        <input class="button" type="submit" value="Submit">
+                        <button class="contact-form_button"  type="submit" formmethod="POST">submit</button>
                     </form>
                     <div class="contacts">
                         <h3>Contact Information</h3>
@@ -202,7 +210,7 @@
                                 <img src="./assets/Contacts__location.png" alt="Location icon">
                             </div>
                             <p class="contact">Elm St. 14/05 Lost City</p>
-                    </div>
+                        </div>
                         <div class="contact-item">
                             <div class="icon">
                                 <img src="./assets/Contacts__phone.png" alt="Phone icon">
@@ -216,6 +224,12 @@
                             <a class="contact" href="mailto:info@singolo.com">info@singolo.com</a>
                         </div>
                     </div>
+                </div>
+                <div class="modal-form modal-form_closed">
+                    <p>Письмо отправлено</p>
+                    <h4 class="modal-form_subject"></h4>
+                    <p class="modal-form_describe"></p>
+                    <button class="modal-form_close">close</button>
                 </div>
             </div>
             <div class="comments_bottom">
@@ -234,6 +248,7 @@
                     <a href=""><img src="./assets/linkedin.png"/></a>
                 </div>
         </footer>
+        <script src="./script.js"></script>
     </body>
 
 </html>
