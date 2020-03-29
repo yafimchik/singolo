@@ -144,7 +144,7 @@ h3{
 }
   
   .hamburger {
-    
+    transform: rotate(90deg) translateY(-25%) translateX(15%);
     display: none;
     flex-flow: row nowrap;
     position: relative;
@@ -160,7 +160,7 @@ h3{
   }
   */
   .hamburger__active {
-    transform: rotate(90deg) translateY(-25%) translateX(15%);
+    transform: unset;
     
 }
 .logo h1{
@@ -230,6 +230,7 @@ nav{
 
 /*---------------------секция слайдера--------------------*/
 .slider{
+    position: relative;
     margin-top: 95px;
     
 }
@@ -240,13 +241,14 @@ nav{
     overflow: hidden;
     width: 100%;
 
-    height: 600px;
+    
     
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-evenly;
+    justify-content: stretch;
     align-items: center;
     align-self: stretch;
+    
 }
 
 .crooked{
@@ -254,7 +256,8 @@ nav{
     
 }
 .slider-arrow{
-    position: relative;
+    position: absolute;
+    top: 50%;
     height: max-content;
     width: max-content;
     border: none;
@@ -263,7 +266,13 @@ nav{
     cursor: pointer;
     opacity: 1;
     z-index: 100;
-    
+    transform: translateY(-50%);
+}
+.slider-arrow.left{
+    left: 40px;
+}
+.slider-arrow.right{
+    right: 40px;
 }
 .slider-arrow img:hover{
     opacity: 0.5;  
@@ -271,15 +280,23 @@ nav{
 }
 
 .slide{
-  
     display: none;
     width: 100%;
-    max-height: 600px;
-       
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center; 
     animation: 0.5s ease-in-out;
+}
+.slider_bottom{
+    width: 100%;
+}
+
+.slide__grid{
+    padding-top: 53px;
+    padding-bottom: 61px;
+    padding-left: 40px;
+    padding-right: 40px;
+    position: relative;
+    display: grid;
+    grid-template: repeat(1, 100%) / 1fr auto 1fr auto 1fr;
+    align-items: center;
 }
 .slide-1{
     background-color: #f06c64;
@@ -287,7 +304,17 @@ nav{
 }
 .slide-2{
     background-color: #648BF0;
-    
+   
+}
+
+
+
+#slide-2__img{
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height:100%
 }
 .mini-tel{
     width: 156px;
@@ -303,7 +330,7 @@ nav{
 }
 .slide-active,
 .slide-next{
-    display: flex;
+    display: block;
 }
 .slide-next{
     position: absolute;
@@ -535,6 +562,7 @@ nav{
 }
 
 .about-us__persons{
+    margin-top: 43px;
     display: grid;
     grid-template: 1fr / repeat(3,1fr);
     justify-content: space-between;
@@ -543,7 +571,7 @@ nav{
 }
 .person{
     width: auto;
-    margin-top: 43px;
+    
     display: grid;
 }
 .person img{
@@ -790,74 +818,164 @@ footer{
     border-color: #666d89;
     box-shadow: inset 0 0 10px #666d89;
 }
+/*
 @media screen and (max-width: 1019px) {
-    .slide img {
+    .slide-1 img {
       transform: scale(0.85);
     }
   }
   @media screen and (max-width: 900px) {
-    .slide img {
+    .slide-1 img  {
       transform: scale(0.8);
     }
   }
   @media screen and (max-width: 800px) {
-    .slide img {
+    .slide-1 img  {
       transform: scale(0.75);
     }
   }
   @media (max-width: 767px) {
-    .slide img {
+    .slide-1 img  {
       width: 100%;
     }
-    .slide img {
+    .slide-1 img  {
       transform: scale(0.7);
     }
   }
   @media screen and (max-width: 690px) {
-    .slide img {
+    .slide-1 img  {
       transform: scale(0.6);
     }
   }
   @media screen and (max-width: 600px) {
-    .slide img {
+    .slide-1 img  {
       transform: scale(0.5);
     }
   }
   @media screen and (max-width: 500px) {
-    .slide img {
+    .slide-1 img  {
       transform: scale(0.4);
     }
   }
   @media screen and (max-width: 440px) {
-    .slide img {
+    .slide-1 img  {
       transform: scale(0.3681);
     }
   }
   @media (max-width: 374px) {
-    .slide img {
+    .slide-1 img  {
       transform: scale(0.33);
     }
     
   }
-  
+  */
 
 @media (max-width: 1019px) {
+    .main h1{
+        padding-top: 7vw;
+    }
+
+    
+    .phone__container1{
+        width : 23.5vw;
+    }
+    .phone__container2{
+        width : 47.5vw;
+    }
+
+    .slider-arrow.left{
+        left: 4vw;
+    }
+    .slider-arrow.right{
+        right: 4vw;
+    }
+    .slide__grid{
+        padding-top: 5.2vw;
+        padding-bottom: 5.2vw;
+        padding-left: 40px;
+        padding-right: 40px;
+        
+      
+    }
+
+    .iphone{
+        width: 100%;
+        height: auto;
+       
+    }
     
     
     .services_wrapper{
+        margin-top: 4vw;
+        margin-bottom: 3vw;
         grid-template: auto auto auto/ auto auto;
         
         padding-bottom: 20px;
-        gap: 10px 20px;
+        gap: 2.6vw 2.6vw;
+        justify-content: unset;
     }
+    .service-item{
+        max-width: 300px;
+        margin-bottom: 29px;
+        display: grid;
+        grid-template: auto auto / auto auto;
+        
+    }
+    .portfolio{
+        padding-top: 2vw;
+    }
+    
+    
     .portfolio__wrapper{
-        padding-bottom: 40px;
+        margin-top: 4vw;
+        padding-bottom: 8vw;
         grid-template: repeat(4, 1fr) / repeat(3, 1fr);
         
         
     
     }
+    .about-us .main {
+        min-height: unset;
+    }
+    .about-us{
+        padding-top: 1.5vw;
+        
+    }
+    .about-us__persons{
+        margin-top: 4.5vw;
+        margin-bottom: 9vw;
+    }
+    .person h3{
+        margin-top: 2vw;
+        color: #666d89; 
+        font-weight: 100;
+    }
     
+    .person p{
+        margin-top: 0vw;
+    
+    }
+    .person__social-links{
+        margin-top: 2vw;
+        display: flex;
+    }
+    .comments{
+        padding-top: 1.5vw;
+    }
+    .comments__wrapper {
+        padding-top: 1vw;
+    }
+    .contacts {
+        padding-left: 20px;
+        padding-top: 13px;
+        max-width: 35%;
+    }
+    textarea {
+        height: 150px;
+    }
+    .comments .main{
+        padding-bottom: 3vw;
+    }
 }
 
 @media (max-width: 767px) {
@@ -877,12 +995,18 @@ footer{
         
 
     }
+    .header_main {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
     .hamburger__line{
         font-size: 20px;
     }
-    .logo h1,
+    .logo h1{
+        font-size: 1.8rem;
+    }
     .nav-link{
-        font-size: 2rem;
+        font-size: 3rem;
     }
     .header_main{
         justify-content: flex-start;
@@ -890,11 +1014,13 @@ footer{
 
     
     .logo{
+        padding-top: 1vw;
         display: flex;
         flex-flow: row nowrap;
         justify-content: center;
-        flex-basis: 90%;
+        flex-basis: 85%;
         font-size: 2rem;
+        
 
     }
     .logo__mobile-menu{
@@ -923,6 +1049,19 @@ footer{
     .slider{
         margin-top: 70px;
         
+    }
+
+    .slider-arrow.left{
+        left: 4vw;
+    }
+    .slider-arrow.right{
+        right: 4vw;
+    }
+    .slide__grid{
+        padding-top: 5.2vw;
+        padding-bottom: 5.6vw;
+        padding-left: 30px;
+        padding-right: 30px;
     }
     
     
