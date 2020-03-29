@@ -1,12 +1,63 @@
 let slideIndex = 0;
 let slideStyles = ["slide-1","slide-2"];
-
+let curCoor = 0;
 function roundIter(i,size){
     let res = i;
     if (i > size - 1) res = i - size;
     if (i < 0) res = i + size;
     return res;
 }
+//change of link activity by scroll
+
+document.addEventListener('scroll', onScroll);
+//document.addEventListener('scroll', onScroll);
+
+function onScroll(event) {
+    const curPos = window.scrollY;
+    const curPosEnd = curPos + window.innerHeight;
+    const sections = document.querySelectorAll('section');
+    const links = document.querySelectorAll('.nav-item');
+   
+    sections.forEach( el => {
+        elTop = el.offsetTop;
+        elEnd = el.offsetTop + el.offsetHeight;
+        let findSect = false;
+        if (elTop + 100 > curPos && elEnd - 100 < curPosEnd)findSect = true; 
+        if (elTop<curPos && elEnd > curPos) findSect = true;
+        if (findSect){
+           // console.log(el.firstElementChild.getAttribute('name'));
+           
+            links.forEach( a => {
+            //console.log(a.firstElementChild);
+            a.classList.remove('nav-item-active');
+            if(el.firstElementChild.getAttribute('name') === a.firstElementChild.getAttribute('href').substring(1)) {
+                a.classList.add('nav-item-active');
+            }
+        })
+    }
+        
+    });
+    
+} 
+
+//opening burger menu
+document.querySelector('.hamburger').addEventListener('click', (e) => {
+    e.currentTarget.classList.toggle('hamburger__active');
+    document.querySelector('nav').classList.toggle('nav__active');
+    document.querySelector('.logo').classList.toggle('logo__burger-active');
+    document.body.classList.toggle('blocked');
+});
+
+//close burger menu
+document.addEventListener('click', (e) => {
+    let isBurgerActive = document.querySelector('.hamburger').classList.contains('hamburger__active');
+    if(isBurgerActive && e.target.tagName === 'A' || e.target.tagName === 'NAV') {
+      document.querySelector('.hamburger').classList.toggle('hamburger__active');
+      document.querySelector('nav').classList.toggle('nav__active');
+      document.querySelector('.logo').classList.toggle('logo__burger-active');
+      document.body.classList.remove('blocked');
+    }
+}, true); 
 
 function clickNavBar(){
   
@@ -56,15 +107,16 @@ function clickSortBar(){
 
 
 function clickPortfolioProject(){
-    
-    let projects = document.querySelectorAll(".portfolio__project");
+    if (this.classList.contains("portfolio__image-active")) this.classList.toggle("portfolio__image-active");
+    else{
+        let projects = document.querySelectorAll(".portfolio__image");
    
-    for(let project of projects){
-        project.classList.remove("portfolio__project-active");
+        for(let project of projects){
+            project.classList.remove("portfolio__image-active");
+        }
+        
+        this.classList.add("portfolio__image-active");
     }
-    
-    this.classList.add("portfolio__project-active");
-    
 }
 
 
@@ -74,9 +126,43 @@ function srcChange(){
     else _src = _src.replace(".png","_Black.png");
     this.src = _src;
 }
+// функция анимации перехода слайдов
+function animateCarusel(slideOld,slideNew,direction){
+    // direction true on left button
+    document.querySelector(".slide-container").classList.add("slide-container-anime");
+    if (direction){
+        slideOld.classList.add("to-right");
+        slideOld.addEventListener('animationend', function() {
+            this.classList.remove('slide-active', "to-right");
+        });
+   
+        slideNew.classList.add("slide-next", "from-left");
+        slideNew.addEventListener('animationend', function() {
+            this.classList.remove('slide-next', "from-left");
+            this.classList.add('slide-active');
+            document.querySelector(".slide-container").classList.remove("slide-container-anime");
+        });
+        
+    }else{
+        
+        slideOld.classList.add("to-left");
+        slideOld.addEventListener('animationend', function() {
+            this.classList.remove('slide-active', "to-left");
+        });
+        slideNew.classList.add("slide-next", "from-right");
+        slideNew.addEventListener('animationend', function() {
+            this.classList.remove('slide-next', "from-right");
+            this.classList.add('slide-active');
+            document.querySelector(".slide-container").classList.remove("slide-container-anime");
+           
+        });
 
+    }
+}
+// функция кнопок слайдера
 
 function clickSliderArrow(){
+    // direction true on left button
     let direction = (this.classList.contains("left"))?true:false;
     let slides = document.querySelectorAll(".slide");
     let currentSlide = slideIndex;
@@ -85,10 +171,10 @@ function clickSliderArrow(){
    
     nextSlide = roundIter(nextSlide, slidesCount);
     
-    slides[currentSlide].style.display = "none";
-
+    animateCarusel(slides[currentSlide],slides[nextSlide],direction);
+   
     slideBgColor(slides[nextSlide]);
-    slides[nextSlide].style.display = "flex";
+   
     slideIndex = nextSlide;
 }
 function slideBgColor(elem){
@@ -161,9 +247,9 @@ for (let item of iphones){
 let slides = document.querySelectorAll(".slide");
 
 for (let slide of slides){
-    slide.style.display = "none";
+    slide.classList.remove("slide-active");
 } 
-slides[slideIndex].style.display = "flex";
+slides[slideIndex].classList.add("slide-active");
 slideBgColor(slides[slideIndex]);
 
 // init portfolio sort
@@ -174,7 +260,7 @@ for (let item of sortItems){
 }
 
 // init portfolio projects
-let projects = document.querySelectorAll(".portfolio__project");
+let projects = document.querySelectorAll(".portfolio__image");
 for(let project of projects){
     project.addEventListener("click",clickPortfolioProject);
 }
