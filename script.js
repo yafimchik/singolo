@@ -43,9 +43,9 @@ function onScroll(event) {
 //opening burger menu
 document.querySelector('.hamburger').addEventListener('click', (e) => {
     e.currentTarget.classList.toggle('hamburger__active');
-    document.querySelector('nav').classList.toggle('nav__active');
-    document.querySelector('.logo').classList.toggle('logo__burger-active');
-    document.body.classList.toggle('blocked');
+    document.querySelector('.nav-mobile').classList.toggle('nav__active');
+    document.querySelector('.logo').classList.toggle('logo__mobile-menu');
+ //   document.body.classList.toggle('blocked');
 });
 
 //close burger menu
@@ -53,9 +53,9 @@ document.addEventListener('click', (e) => {
     let isBurgerActive = document.querySelector('.hamburger').classList.contains('hamburger__active');
     if(isBurgerActive && e.target.tagName === 'A' || e.target.tagName === 'NAV') {
       document.querySelector('.hamburger').classList.toggle('hamburger__active');
-      document.querySelector('nav').classList.toggle('nav__active');
-      document.querySelector('.logo').classList.toggle('logo__burger-active');
-      document.body.classList.remove('blocked');
+      document.querySelector('.nav-mobile').classList.toggle('nav__active');
+      document.querySelector('.logo').classList.toggle('logo__mobile-menu');
+  //    document.body.classList.remove('blocked');
     }
 }, true); 
 
@@ -129,7 +129,7 @@ function srcChange(){
 // функция анимации перехода слайдов
 function animateCarusel(slideOld,slideNew,direction){
     // direction true on left button
-    document.querySelector(".slide-container").classList.add("slide-container-anime");
+   
     if (direction){
         slideOld.classList.add("to-right");
         slideOld.addEventListener('animationend', function() {
@@ -140,7 +140,7 @@ function animateCarusel(slideOld,slideNew,direction){
         slideNew.addEventListener('animationend', function() {
             this.classList.remove('slide-next', "from-left");
             this.classList.add('slide-active');
-            document.querySelector(".slide-container").classList.remove("slide-container-anime");
+          
         });
         
     }else{
@@ -153,7 +153,7 @@ function animateCarusel(slideOld,slideNew,direction){
         slideNew.addEventListener('animationend', function() {
             this.classList.remove('slide-next', "from-right");
             this.classList.add('slide-active');
-            document.querySelector(".slide-container").classList.remove("slide-container-anime");
+           
            
         });
 
