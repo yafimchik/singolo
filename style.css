@@ -937,6 +937,9 @@ footer{
     .about-us .main {
         min-height: unset;
     }
+    .portfolio{
+        padding-top: 2vw;
+    }
     .about-us{
         padding-top: 1.5vw;
         
@@ -979,6 +982,7 @@ footer{
 }
 
 @media (max-width: 767px) {
+    
     .ancor-link {
         position: relative;
         top: -70px;
@@ -989,6 +993,9 @@ footer{
     .main{
         padding-left: 30px;
         padding-right: 30px;
+    }
+    .main h1{
+        padding-top: 10vw;
     }
     .hamburger{
         display: block;
@@ -1059,17 +1066,32 @@ footer{
     }
     .slide__grid{
         padding-top: 5.2vw;
-        padding-bottom: 5.6vw;
+        padding-bottom: 4vw;
         padding-left: 30px;
         padding-right: 30px;
     }
     
     
     .services_wrapper{
+       
+        margin-top: 6vw;
         grid-template: repeat(6, auto) / auto;
         
-        padding-bottom: 20px;
-        gap: 10px 20px;
+        padding-bottom: 10px;
+        gap: 25px 20px;
+    }
+    .service-item{
+        margin-bottom: unset;
+    }
+    .portfolio{
+        padding-top: 4vw;
+    }
+    .portfolio-sort {
+        margin-top: 15px;
+    }
+    .about-us{
+        padding-top: 1.5vw;
+        
     }
     .portfolio__wrapper{
         grid-template: repeat(6, 1fr) / repeat(2, 1fr);
