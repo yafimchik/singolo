@@ -1089,11 +1089,13 @@ footer{
     .portfolio-sort {
         margin-top: 15px;
     }
+    
     .about-us{
         padding-top: 1.5vw;
         
     }
     .portfolio__wrapper{
+        margin-top: 6vw;
         grid-template: repeat(6, 1fr) / repeat(2, 1fr);
         
         row-gap: 14px;
@@ -1103,7 +1105,17 @@ footer{
         grid-template: repeat(3,auto) / auto;
         justify-content: space-between;
         column-gap: 20px;
-        row-gap: 20px;
+        row-gap: 35px;
+    }
+    .person h3{
+        margin-top: 4vw;
+    }
+    .person__social-links{
+        margin-top: 5vw;
+        display: flex;
+    }
+    .comments{
+        padding-top: 5vw;
     }
     .comments__wrapper{
         flex-flow: column nowrap;
